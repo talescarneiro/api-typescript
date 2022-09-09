@@ -1,0 +1,47 @@
+// INSTALL MODULES
+$ yarn init -y
+
+// ADD TYPESCRIPT AS DEV
+$ yarn add -D typescript
+
+// ADD EXPRESS AND UUID LIBS
+$ yarn add express uuid
+
+// TO CREATE tsconfigjson
+$ yarn tsc --init
+
+// TO FIX IMPORT ERRORS FROM EXPRESS AND UUID
+$ yarn add -D @types/express
+$ yarn add -D @types/uuid
+
+// JSON WEB TOKEN & BCRYPT LIBS 
+$ yarn add jsonwebtoken bcrypt
+$ yarn add -D @types/jsonwebtoken @types/bcrypt
+
+// TO RUN SERVER & ADD TO PACKAGE.JSON AS "scripts": {"dev": "ts-node-dev src/app.ts"}
+$ yarn add -D ts-node-dev
+
+// TO ADD TYPEORM & REFLECT-METADATA & PG & DOTENV CONFIG
+$ yarn add typeorm reflect-metadata pg dotenv
+$ yarn add -D @types/node
+
+tsconfig: 
+    "strictPropertyInitialization": false,  
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,   
+package.json:
+    "scripts": {"typeorm": "typeorm-ts-node-commonjs"}
+
+// TO CREATE MIGRATIONS
+$ yarn typeorm migration:create src/migrations/initialMigration
+
+
+// TO RUN DATABASE CONFIG AND BUILD TABLES
+$ yarn typeorm migration:generate src/migrations/initialMigration -d src/data-source.ts
+$ yarn typeorm migration:run -d src/data-source.ts
+
+// TO ADD MIGRATION PASSWORD LINE
+$ yarn typeorm migration:generate src/migrations/userPassword -d src/data-source.ts
+
+// TO RUN MIGRATIONS AFTER ADD COLUMN PASSWORD (IF ERROR DROP TABLE)
+// $ yarn typeorm migration:run -d src/data-source.ts
