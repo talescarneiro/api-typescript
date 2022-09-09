@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "ts-node-dev src/app.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "start": "./node_modules/.bin/pm2 start src/server.ts --watch",
-    "pm2": "NODE_ENV=production pm2 start src/app.ts --watch"
+    "start": "node --loader ts-node/esm src/app.ts",
+    "pm2": "NODE_ENV=production pm2 start src/app.ts --watch",
+    "postinstall": "$(yarn bin)/pm2 install typecsript"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
