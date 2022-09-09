@@ -1,3 +1,5 @@
+"start": "node --loader ts-node/esm src/app.ts",
+
 // INSTALL MODULES
 $ yarn init -y
 
@@ -16,7 +18,7 @@ $ yarn add -D @types/uuid
 
 // JSON WEB TOKEN & BCRYPT LIBS 
 $ yarn add jsonwebtoken bcrypt
-$ yarn add -D @types/jsonwebtoken @types/bcrypt
+$ y
 
 // TO RUN SERVER & ADD TO PACKAGE.JSON AS "scripts": {"dev": "ts-node-dev src/app.ts"}
 $ yarn add -D ts-node-dev
